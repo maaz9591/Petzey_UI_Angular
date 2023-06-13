@@ -234,6 +234,10 @@
                     * The form field should be required type.
                     * If the user touches the form field and move out from the email form field, then it should through an error message as "Email is required field, please fill."
                     * Email should contain '@' symbol, if not show an error message as "Please fill proper email address." -->
+                  <div *ngIf="addForm.get('email')?.touched && addForm.get('email')?.errors">
+                    <span *ngIf="addForm.get('email')?.hasError('required')" class="text-danger">Required field</span><br>
+                    <span *ngIf="addForm.get('email')?.hasError('email')"class="text-danger">Invalid Email Format.</span>
+                  </div>
                 </div>
               </div>
 
